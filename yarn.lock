@@ -30,6 +30,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.14.0":
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
+  integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/types@7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.8.3.tgz#5a383dffa5416db1b73dedffd311ffd0788fb31c"
@@ -58,6 +65,20 @@
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.1.tgz#9daf5745156fd84b8e9889a2dc721f0c58e894aa"
   integrity sha512-CAEbWH7OIur6jEOzaai83jq3FmKmv4PmX1JYfs9IrYcGEVI/lyL1EXJGCj7eFVJ0bg5QR8LMxBlEtA+xKiLpFw==
+
+"@next-auth/prisma-legacy-adapter@canary":
+  version "0.0.1-canary.115"
+  resolved "https://registry.yarnpkg.com/@next-auth/prisma-legacy-adapter/-/prisma-legacy-adapter-0.0.1-canary.115.tgz#ef291c865f1ce9d85f660c85b0b0be16bd89c641"
+  integrity sha512-rIIisYBvVtxDbY9Lbm+HOLbZyOaaEmtGc9wDN3tJLDUu3sLJOXNN7Pz29ThS+gf2lpMxXnfvk587hxGrnhCghQ==
+
+"@next-auth/typeorm-legacy-adapter@canary":
+  version "0.0.2-canary.117"
+  resolved "https://registry.yarnpkg.com/@next-auth/typeorm-legacy-adapter/-/typeorm-legacy-adapter-0.0.2-canary.117.tgz#c71f7e5f3b474e8b292acaa8ad69d2a4537f93ba"
+  integrity sha512-sYJZPWMsM1ZTJcl749UojYDF4q8+ZiYcrR7rM4SACc0qiA9VBdOYUUMUMpQoazKOiwo1rWDKu4wHPt6CdV0ctQ==
+  dependencies:
+    crypto-js "^4.0.0"
+    require_optional "^1.0.1"
+    typeorm "^0.2.30"
 
 "@next/env@10.1.2":
   version "10.1.2"
@@ -135,10 +156,10 @@
   resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-1.13.2.tgz#bb2f561085b5dd091355df871d432b8e1fd467f6"
   integrity sha512-fycUk7ECukNc31lD5apcrUgdRC1BfiIacs+CpacoCjOgo3ablolnWCvDQWMmVWtODYa8bBv2dlBla+Edc5OvZg==
 
-"@types/next-auth@^3.13.0":
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/@types/next-auth/-/next-auth-3.13.0.tgz#c933bcc4259262959544df24bbc8528e3548fa26"
-  integrity sha512-zkEVDyoKgRsHm3KUaZoOGSThTS9h0+HbFZctiYbB5MMU6/pUZuF5ozWrVG00jotQJuSEIlPWzdCIXKlaHctJgw==
+"@types/next-auth@3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@types/next-auth/-/next-auth-3.7.1.tgz#9f3d7d79e2dd06fc0ddbce2ab732ee8ec12b6be9"
+  integrity sha512-HV3i87HLwt/nO6wSy6ainAYyzBxeEITOwaq8TZevaFG2Ix7eleAgL0ae7gAEa4SW4Ms+2rxv7eIZtk/CIpMapg==
   dependencies:
     "@types/node" "*"
     "@types/react" "*"
@@ -160,7 +181,16 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/react@*", "@types/react@^17.0.3":
+"@types/react@*":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.5.tgz#3d887570c4489011f75a3fc8f965bf87d09a1bea"
+  integrity sha512-bj4biDB9ZJmGAYTWSKJly6bMr4BLUiBrx9ujiJEoP9XIDY9CTaPGxE5QWN/1WjpPLzYF7/jRNnV2nNxNe970sw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/scheduler" "*"
+    csstype "^3.0.2"
+
+"@types/react@^17.0.3":
   version "17.0.3"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.3.tgz#ba6e215368501ac3826951eef2904574c262cc79"
   integrity sha512-wYOUxIgs2HZZ0ACNiIayItyluADNbONl7kt8lkLjVK8IitMH5QMyAh75Fwhmo37r1m7L2JaFj03sIfxBVDvRAg==
@@ -1291,9 +1321,9 @@ jest-worker@27.0.0-next.5:
     supports-color "^8.0.0"
 
 jose@^1.27.2, jose@^1.28.0:
-  version "1.28.0"
-  resolved "https://registry.yarnpkg.com/jose/-/jose-1.28.0.tgz#0803f8c71f43cd293a9d931c555c30531f5ca5dc"
-  integrity sha512-JmfDRzt/HSj8ipd9TsDtEHoLUnLYavG+7e8F6s1mx2jfVSfXOTaFQsJUydbjJpTnTDHP1+yKL9Ke7ktS/a0Eiw==
+  version "1.28.1"
+  resolved "https://registry.yarnpkg.com/jose/-/jose-1.28.1.tgz#34a0f851a534be59ffab82a6e8845f6874e8c128"
+  integrity sha512-6JK28rFu5ENp/yxMwM+iN7YeaInnY9B9Bggjkz5fuwLiJhbVrl2O4SJr65bdNBPl9y27fdC3Mymh+FVCvozLIg==
   dependencies:
     "@panva/asn1.js" "^1.0.0"
 
@@ -1517,11 +1547,14 @@ native-url@0.3.4:
   dependencies:
     querystring "^0.2.0"
 
-next-auth@^3.13.3:
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-3.13.3.tgz#d684f30e91e37416af4b250201dd3e216e493433"
-  integrity sha512-hPt1HlTjnBxWS14ZvWgTjQRCawxOYv+62E/2fUMTllkx/54yx3F2PbSx2aimoTyjybSH62vukkTgq4UId6PRew==
+next-auth@^3.20.1:
+  version "3.20.1"
+  resolved "https://registry.yarnpkg.com/next-auth/-/next-auth-3.20.1.tgz#5047a3f3a8e87c15e6b575f4352adc6299e0d998"
+  integrity sha512-d9oYOreK0M7PDPyIZ5sXGIiFA6ej61qMvhJdWp+lsaSKOokbS2LTrl4XMpv4YMnjgyv3p0lSU4WD5GBsNEsoRg==
   dependencies:
+    "@babel/runtime" "^7.14.0"
+    "@next-auth/prisma-legacy-adapter" canary
+    "@next-auth/typeorm-legacy-adapter" canary
     crypto-js "^4.0.0"
     futoin-hkdf "^1.3.2"
     jose "^1.27.2"
@@ -1638,9 +1671,9 @@ node-releases@^1.1.69:
   integrity sha512-zR6HoT6LrLCRBwukmrVbHv0EpEQjksO6GmFcZQQuCAy139BEsoVKPYnf3jongYW83fAa1torLGYwxxky/p28sg==
 
 nodemailer@^6.4.16:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.5.0.tgz#d12c28d8d48778918e25f1999d97910231b175d9"
-  integrity sha512-Tm4RPrrIZbnqDKAvX+/4M+zovEReiKlEXWDzG4iwtpL9X34MJY+D5LnQPH/+eghe8DLlAVshHAJZAZWBGhkguw==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.6.0.tgz#ed47bb572b48d9d0dca3913fdc156203f438f427"
+  integrity sha512-ikSMDU1nZqpo2WUPE0wTTw/NGGImTkwpJKDIFPZT+YvvR9Sj+ze5wzu95JHkBMglQLoG2ITxU21WukCC/XsFkg==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
