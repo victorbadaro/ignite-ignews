@@ -12,6 +12,7 @@
 - [🚀 Principais tecnologias utilizadas](#-principais-tecnologias-utilizadas)
 - [🔽 Como baixar o projeto](#-como-baixar-o-projeto)
 - [💻 Como executar o projeto](#-como-executar-o-projeto)
+- [👨‍🔧 Serviços](#-servicos)
 - [👌 Como usar o app](#-como-usar-o-app)
   <br>
 
