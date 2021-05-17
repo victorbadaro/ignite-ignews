@@ -12,7 +12,7 @@
 - [🚀 Principais tecnologias utilizadas](#-principais-tecnologias-utilizadas)
 - [🔽 Como baixar o projeto](#-como-baixar-o-projeto)
 - [💻 Como executar o projeto](#-como-executar-o-projeto)
-- [👨‍🔧 Serviços](#-servicos)
+- [👨‍🔧 Serviços](#-serviços)
 - [👌 Como usar o app](#-como-usar-o-app)
   <br>
 
@@ -59,7 +59,7 @@ Os comandos abaixo utilizam o gerenciador de pacotes [yarn](https://yarnpkg.com/
    $ yarn
    ```
 
-2. A aplicação também depende de outros serviços para funcionar. São serviços de pagamento, autenticação, banco de dados e CMS. Todos eles devem ser configurados antes da execução do app. Veja a seção [Serviços](#-servicos)
+2. A aplicação também depende de outros serviços para funcionar. São serviços de pagamento, autenticação, banco de dados e CMS. Todos eles devem ser configurados antes da execução do app. Veja a seção [Serviços](#-serviços)
 
 3. A aplicação pode ser executada tanto no ambiente de produção como no ambiente de desenvolvimento:
 
@@ -125,8 +125,8 @@ PRISMIC_ACCESS_TOKEN=
    Três chaves são necessárias para a integração correta com o serviço do Stripe.<br>
    No dashboard do Stripe, clique no menu _**Developers**_ e em seguida em _**API Keys**_ para obter tanto a **Publishable key** como a **Secret key**.<br>
    Copie as chaves para o arquivo `.env.local`:<br>
-   STRIPE*API_KEY=\_Secrect key*<br>
-   NEXT*PUBLIC_STRIPE_PUBLIC_KEY=\_Publishable key*
+   STRIPE_API_KEY=_Secrect key_<br>
+   NEXT_PUBLIC_STRIPE_PUBLIC_KEY=_Publishable key_
    <img src="./docs/stripe_keys.jpg" alt="Stripe keys">
 
    Para obter a última chave do Stripe, baixe a _**CLI**_:
@@ -182,7 +182,7 @@ PRISMIC_ACCESS_TOKEN=
    Terms: data.userId
    ```
 
-   Agora, depois que a estrutura do banco já estiver pronta (com as Collections e Indexes), gere uma _**Secrect key**_. Para isso basta acessar o menu _**Security**_ e dar um nome para a nova key:
+   Agora, depois que a estrutura do banco já estiver pronta (com as Collections e Indexes), gere uma _**Secret key**_. Para isso basta acessar o menu _**Security**_ e dar um nome para a nova key:
    <img src="./docs/fauna_key.png" alt="FaunaDB key">
 
    A chave aparecerá na tela logo em seguida:
@@ -203,9 +203,9 @@ PRISMIC_ACCESS_TOKEN=
    <img src="./docs/oauth_register.png" alt="OAuth register">
 
    Após ter registrado a aplicação OAuth já será possível obter o _**Client ID**_ e o _**Client Secret**_. O _**Client Secret**_ será gerado clicando no botão _**Generate a new client secret**_.<br>
-   Copie o _**Client ID**_ para dentro do arquivo `.env.local`, na frente de GITHUB\*CLIENT\*ID e o **\*Client Secret\*** na frente de GITHUB*CLIENT_SECRET.<br>
-   GITHUB_CLIENT_ID=\_Client ID*<br>
-   GITHUB*CLIENT_SECRET=\_Client Secret*
+   Copie o _**Client ID**_ para dentro do arquivo `.env.local`, na frente de GITHUB_CLIENT_ID e o _**Client Secret**_ na frente de GITHUB_CLIENT_SECRET.<br>
+   GITHUB_CLIENT_ID=_Client ID_<br>
+   GITHUB_CLIENT_SECRET=_Client Secret_
    <img src="./docs/oauth_secrets.png" alt="OAuth secrets">
 
 4. Prismic CMS
