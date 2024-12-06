@@ -24,9 +24,6 @@
     "stripe": "^17.4.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.26.0",
-    "@babel/preset-react": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0",
     "@biomejs/biome": "^1.9.4",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
