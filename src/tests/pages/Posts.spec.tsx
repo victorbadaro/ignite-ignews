@@ -4,7 +4,14 @@ import { render, screen } from '@testing-library/react';
 
 jest.mock('../../services/prismic');
 
-const posts = [{ slug: 'my-new-post', title: 'My new post', excerpt: 'Post excerpt', updatedAt: '05 de maio de 2021' }];
+const posts = [
+	{
+		slug: 'my-new-post',
+		title: 'My new post',
+		excerpt: 'Post excerpt',
+		updatedAt: '05 de maio de 2021'
+	}
+];
 
 describe('Posts page', () => {
 	it('should render correctly', () => {

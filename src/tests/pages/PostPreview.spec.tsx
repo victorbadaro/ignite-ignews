@@ -1,9 +1,15 @@
-import Post, { getServerSideProps } from '@/pages/posts/[slug]';
+import PostPreview, { getStaticProps } from '@/pages/posts/preview/[slug]';
 import { getPrismicClient } from '@/services/prismic';
 import { render, screen } from '@testing-library/react';
-import { getSession } from 'next-auth/client';
+import { useSession } from 'next-auth/client';
+import { useRouter } from 'next/router';
 
 jest.mock('next-auth/client');
+jest.mock('next/router', () => {
+	return {
+		useRouter: jest.fn()
+	};
+});
 jest.mock('../../services/prismic');
 
 const post = {
@@ -13,43 +19,50 @@ const post = {
 	updatedAt: '05 de maio de 2021'
 };
 
-describe('Post page', () => {
+describe('PostPreview page', () => {
 	it('should render correctly', () => {
-		render(<Post post={post} />);
+		const useSessionMocked = jest.mocked(useSession);
+		const useRouterMocked = jest.mocked(useRouter);
 
-		expect(screen.getByText('My new post')).toBeInTheDocument();
-		expect(screen.getByText('Post excerpt')).toBeInTheDocument();
-	});
-
-	it('should redirect user if no subscription is found', async () => {
-		const getSessionMocked = jest.mocked(getSession);
-
-		getSessionMocked.mockResolvedValueOnce(null);
-
-		const response = await getServerSideProps({
-			params: {
-				slug: 'my-new-post'
-			}
+		useSessionMocked.mockReturnValueOnce([null, false]);
+		useRouterMocked.mockReturnValueOnce({
+			push: jest.fn()
 
 			// biome-ignore lint/suspicious/noExplicitAny: just the properties above are necessary for this test case
 		} as any);
 
-		expect(response).toEqual(
-			expect.objectContaining({
-				redirect: expect.objectContaining({
-					destination: '/posts/preview/my-new-post'
-				})
-			})
-		);
+		render(<PostPreview post={post} />);
+
+		expect(screen.getByText('My new post')).toBeInTheDocument();
+		expect(screen.getByText('Post excerpt')).toBeInTheDocument();
+		expect(screen.getByText('Wanna continue reading?')).toBeInTheDocument();
+	});
+
+	it('should redirect user to full post when user is subscribed', async () => {
+		const useSessionMocked = jest.mocked(useSession);
+		const useRouterMocked = jest.mocked(useRouter);
+		const pushMocked = jest.fn();
+
+		useSessionMocked.mockReturnValueOnce([
+			{
+				activeSubscription: 'fake-active-subscription'
+			},
+			false
+		]);
+
+		useRouterMocked.mockReturnValueOnce({
+			push: pushMocked
+
+			// biome-ignore lint/suspicious/noExplicitAny: just the properties above are necessary for this test case
+		} as any);
+
+		render(<PostPreview post={post} />);
+
+		expect(pushMocked).toHaveBeenCalledWith('/posts/my-new-post');
 	});
 
 	it('should load initial data', async () => {
-		const getSessionMocked = jest.mocked(getSession);
 		const getPrismicClientMocked = jest.mocked(getPrismicClient);
-
-		getSessionMocked.mockResolvedValueOnce({
-			activeSubscription: 'fake-active-subscription'
-		});
 
 		getPrismicClientMocked.mockReturnValueOnce({
 			getByUID: jest.fn().mockResolvedValueOnce({
@@ -63,13 +76,11 @@ describe('Post page', () => {
 			// biome-ignore lint/suspicious/noExplicitAny: just the properties above are necessary for this test case
 		} as any);
 
-		const response = await getServerSideProps({
+		const response = await getStaticProps({
 			params: {
 				slug: 'my-new-post'
 			}
-
-			// biome-ignore lint/suspicious/noExplicitAny: just the properties above are necessary for this test case
-		} as any);
+		});
 
 		expect(response).toEqual(
 			expect.objectContaining({
