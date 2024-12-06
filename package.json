@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint",
 		"test": "jest",
-		"test:watch": "jest --watchAll"
+		"test:watch": "jest --watchAll",
+		"test:coverage": "jest --coverage"
 	},
 	"dependencies": {
 		"@prismicio/client": "^4.0.0",
