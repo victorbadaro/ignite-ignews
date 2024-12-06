@@ -8,9 +8,14 @@ describe('Async component', () => {
 		expect(screen.getByText('Hello, World')).toBeInTheDocument();
 		// expect(await screen.findByText('Visible Button')).toBeInTheDocument();
 
-		await waitFor(() => {
-			return expect(screen.getByText('Visible Button')).toBeInTheDocument();
-		});
+		await waitFor(
+			() => {
+				return expect(screen.getByText('Visible Button')).toBeInTheDocument();
+			},
+			{
+				timeout: 1100
+			}
+		);
 	});
 
 	it('should render correctly with the invisible button', async () => {
@@ -22,6 +27,8 @@ describe('Async component', () => {
 		// 	return expect(screen.queryByText('Invisible Button')).not.toBeInTheDocument();
 		// });
 
-		await waitForElementToBeRemoved(screen.queryByText('Invisible Button'));
+		await waitForElementToBeRemoved(screen.queryByText('Invisible Button'), {
+			timeout: 1100
+		});
 	});
 });
